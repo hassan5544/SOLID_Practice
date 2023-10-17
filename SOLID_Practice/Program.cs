@@ -5,7 +5,6 @@ class SmellyCodeExample
 {
     static void Main(string[] args)
     {
-        AreaCalculator areaCalculator = new AreaCalculator();
         List<IShapes> shapes = new List<IShapes> {
             new Circle(0) , 
             new Square(0)
@@ -15,6 +14,7 @@ class SmellyCodeExample
         {
             Console.WriteLine((item + 1).ToString() + "." + shapes[item].GetType().Name.ToString() + "\n");
         }
+
         int choice = Convert.ToInt32(Console.ReadLine());
 
         if (choice < shapes.Count)
@@ -23,7 +23,7 @@ class SmellyCodeExample
             double parameters = Convert.ToDouble(Console.ReadLine());
             object test = shapes[choice];
             shapes[choice].Equals(parameters);
-            double circleArea = areaCalculator.CalulateAreaOfShape(shapes[choice]);
+            double circleArea =shapes[choice].Area();
             Console.WriteLine("The area of the circle is: " + circleArea);
         }
 
@@ -34,18 +34,3 @@ class SmellyCodeExample
     }
 }
 
-//class Circle
-//{
-//    public double CalculateCircleArea(double radius)
-//    {
-//        return Math.PI * radius * radius;
-//    }
-//}
-
-//class Square
-//{
-//    public double CalculateSquareArea(double sideLength)
-//    {
-//        return sideLength * sideLength;
-//    }
-//}
