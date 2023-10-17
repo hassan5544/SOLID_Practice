@@ -1,30 +1,32 @@
 ﻿using System;
+using SOLID_Practice;
 
 class SmellyCodeExample
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Choose a shape:\n1. Circle\n2. Square");
-        string choice = Console.ReadLine();
-
-        if (choice == "1")
+        AreaCalculator areaCalculator = new AreaCalculator();
+        List<IShapes> shapes = new List<IShapes> {
+            new Circle(0) , 
+            new Square(0)
+        };
+        Console.WriteLine("Choose a shape:\n");
+        for (int item = 0; item < shapes.Count ; item ++ )
         {
-            Console.WriteLine("Enter the radius of the circle:");
-            double radius = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine((item + 1).ToString() + "." + shapes[item].GetType().Name.ToString() + "\n");
+        }
+        int choice = Convert.ToInt32(Console.ReadLine());
 
-            Circle circle = new Circle();
-            double circleArea = circle.CalculateCircleArea(radius);
+        if (choice < shapes.Count)
+        {
+            Console.WriteLine("Enter the Parameters of the " + shapes[choice].GetType().Name);
+            double parameters = Convert.ToDouble(Console.ReadLine());
+            object test = shapes[choice];
+            shapes[choice].Equals(parameters);
+            double circleArea = areaCalculator.CalulateAreaOfShape(shapes[choice]);
             Console.WriteLine("The area of the circle is: " + circleArea);
         }
-        else if (choice == "2")
-        {
-            Console.WriteLine("Enter the side length of the square:");
-            double sideLength = Convert.ToDouble(Console.ReadLine());
 
-            Square square = new Square();
-            double squareArea = square.CalculateSquareArea(sideLength);
-            Console.WriteLine("The area of the square is: " + squareArea);
-        }
         else
         {
             Console.WriteLine("Invalid choice.");
@@ -32,18 +34,18 @@ class SmellyCodeExample
     }
 }
 
-class Circle
-{
-    public double CalculateCircleArea(double radius)
-    {
-        return Math.PI * radius * radius;
-    }
-}
+//class Circle
+//{
+//    public double CalculateCircleArea(double radius)
+//    {
+//        return Math.PI * radius * radius;
+//    }
+//}
 
-class Square
-{
-    public double CalculateSquareArea(double sideLength)
-    {
-        return sideLength * sideLength;
-    }
-}
+//class Square
+//{
+//    public double CalculateSquareArea(double sideLength)
+//    {
+//        return sideLength * sideLength;
+//    }
+//}
