@@ -17,6 +17,11 @@ namespace SOLID_Practice
         {
             this.Radius = radius;
         }
+
+        public Circle()
+        {
+            
+        }
         /// <summary>
         /// Implement the Area function from the IShapes Interface with the Calculation of Area
         /// </summary>

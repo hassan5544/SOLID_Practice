@@ -18,6 +18,10 @@ namespace SOLID_Practice
             this.SideLength = sideLength;
         }
 
+        public Square()
+        {
+                
+        }
 
         /// <summary>
         /// Implement the Area function from the IShapes Interface with the Calculation of Area
