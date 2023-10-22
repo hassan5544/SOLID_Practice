@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SOLID_Practice
+﻿namespace SOLID_Practice
 {
     /// <summary>
     /// Remove the Square Class to its own file
@@ -12,24 +6,19 @@ namespace SOLID_Practice
     public class Square : IShapes
     {
         public double SideLength { get; set; }
-
-        public Square(double sideLength)
+        public int DecimalPlaces { get; set; }
+        public Square(double sideLength , int decimalPlaces)
         {
             this.SideLength = sideLength;
+            this.DecimalPlaces = decimalPlaces;
         }
-
-        public Square()
-        {
-                
-        }
-
         /// <summary>
         /// Implement the Area function from the IShapes Interface with the Calculation of Area
         /// </summary>
         /// <returns></returns>
         public double Area()
         {
-            return SideLength * SideLength;
+            return Math.Round(SideLength * SideLength,DecimalPlaces);
         }
     }
 }

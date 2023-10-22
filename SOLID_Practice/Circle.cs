@@ -12,23 +12,20 @@ namespace SOLID_Practice
     public class Circle : IShapes
     {
         public double Radius { get; set; }
-
-        public Circle(double radius)
+        public int DecimalPlaces { get; set; }
+        public Circle(double radius,int decimalPlaces)
         {
             this.Radius = radius;
+            this.DecimalPlaces = decimalPlaces;
         }
-
-        public Circle()
-        {
-            
-        }
+        
         /// <summary>
         /// Implement the Area function from the IShapes Interface with the Calculation of Area
         /// </summary>
         /// <returns></returns>
         public double Area()
         {
-            return Math.PI * Radius * Radius;
+            return Math.Round(Math.PI * Radius * Radius , DecimalPlaces);
         }
     }
 }

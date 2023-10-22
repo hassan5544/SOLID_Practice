@@ -12,8 +12,8 @@ namespace SOLID_Practice
         public static List<IShapes> CreateListOfShapes()
         {
             return new List<IShapes> {
-                new Circle() ,
-                new Square()
+                new Circle(0,2) ,
+                new Square(0,2)
             };
         }
         public static IShapes CreateInstance(Type type, params object[] args)
